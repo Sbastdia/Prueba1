@@ -5,8 +5,9 @@ lista2=[]
 
     #lista2.append(i)
 
-lista[0], lista[len-1]= lista[len-1], lista[0]
-lista=lista.pop()
+lista[0] =lista[-1]
+lista[-1]=lista[0]
+lista.pop()
 nuevaLista= [lista]
 print(lista)
 
