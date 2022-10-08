@@ -11,8 +11,13 @@ def convertir(array):
     return data_df
 print(convertir(data_array))
 
-list1=np.array([10, True, 8.00, False, 8, 10])
-new=convertir(list1)
+new_serie = pd.Series(map(lambda x: int(x), pd.Series(data_array)))
+print(new_serie)
+
+data_array2=np.array([10, True, 8.00, False, 8, 10])
+new=convertir(data_array2)
+new2 = pd.Series(map(lambda x: int(x), pd.Series(data_array2)))
+print(new2)
 
 print(new)
 
