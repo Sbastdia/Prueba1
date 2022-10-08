@@ -11,6 +11,7 @@ t = df.loc[:, 'Weight']
 #print(df.head())
 
 
+
 for i in range(len(df)):
     df[i] 
 
