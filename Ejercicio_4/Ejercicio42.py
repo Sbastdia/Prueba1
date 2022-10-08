@@ -62,6 +62,20 @@ def valores_unicos(serie,valores=[],repetidos=[],unicos=[]):
     return unicos
 print(valores_unicos(new))
 
+def ordenar(serie):
+    n = len(serie)
+    for i in range(n):
+        derecha = serie[i]
+        for j in range(i - 1, -1, -1):
+            izquierda = serie[j]
+            if derecha > izquierda:
+                serie[j + 1] = izquierda
+                serie[j] = derecha
+                derecha = serie[j]
+    return serie
+
+print(ordenar(new))
+
 
 
 
