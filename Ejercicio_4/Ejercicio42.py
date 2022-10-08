@@ -25,8 +25,9 @@ print(new)
 for i in new:
     print(type(i))
 
-new2=pd.DataFrame(new,columns=['ej_42'])
-print(new2.memory_usage())
+new3=pd.DataFrame(new,columns=['ej_42'])
+print(new3.memory_usage())
+print(new3)
 
 #4.2.4
 plt.plot(new)
