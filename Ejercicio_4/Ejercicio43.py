@@ -46,3 +46,10 @@ def frecuencia_serie(serie):
 frecuencia_cilindros=frecuencia_serie(new_df['Cylinders'])
 print(frecuencia_cilindros)
 #como podemos observar, el numero de cilindros mas frecuente es 4
+
+año_70=filtro_antiguedad(df,70)
+año_79=filtro_antiguedad(df,79)
+consumo_medio_año_70=año_70['MPG'].mean()
+consumo_medio_año_79=año_79['MPG'].mean()
+diferencia_consumo=abs(consumo_medio_año_70-consumo_medio_año_79)
+print (diferencia_consumo)
