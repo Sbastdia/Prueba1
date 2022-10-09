@@ -1,33 +1,6 @@
 import numpy as np
 import sys
 
-
-'''lista = np.random.randint(10, size=(6,6))
-print(lista)
-print(sys.getsizeof(lista))
-print(lista[0][0])
-print(sys.getsizeof(lista[0][0]))
-print(sys.getsizeof(lista[2][3]))
-num=8
-print(sys.getsizeof(num))
-media = sum(lista) / len(lista)
-
-varianza = 0
-for i in range(len(lista)):
-    varianza +=  pow((lista[i] - media), 2)
-
-varianza /= len(lista)
-
-print(varianza)
-
-# Me falta el 3.1.4
-
-lista2 = []
-
-for i in range(len(lista)):
-    lista2.append(round(lista[i]))
-
-print(lista2)'''
 class Ejercicio31:
     def __init__(self):
         self.lista= np.random.randint(10, size=(6,6))
