@@ -96,3 +96,67 @@ df1.reset_index(drop=True, inplace=True)
 df1=filtro_mpg_maximo(df1,10)
 df1.reset_index(drop=True, inplace=True)
 print(df1)
+
+class Ejercicio43:
+    def __init__(self,df):
+        self.df=df
+    def filtro_peso_minimo(self,peso):
+        for c in range(len(self.df['Weight'])):
+            if self.df['Weight'][c]<=peso:
+                dtf=self.df.drop(c)
+        return dtf
+    def filtro_antiguedad(self,año):
+        for c in range(len(self.df['Model Year'])):
+            if self.df['Model Year'][c]!=año:
+                dtf=self.df.drop(c)
+        return dtf
+    def localizar_defectos(self):
+        lst=self.df.columns
+        dtf1=pd.DataFrame()
+        for i in lst:
+            for j in range(len(self.df[i])):
+                if self.df[i][j]=='?':
+                    print(f'({i},{j})')
+                    dtf1[j]=self.df.iloc[j]
+        return dtf1.T
+
+    def filtro_minimos(self,num,mpg,peso):
+        for c in range(len(self.df['Cylinders'])):
+            if self.df['Cylinders'][c]<num | self.df['MPG'][c]>mpg | self.df['Weight'][c]<=peso:
+                dtf=self.df.drop(c)
+        return dtf
+    @staticmethod
+    def ejecutar():
+        df = pd.read_csv('auto-mpg.csv', sep='\s+', names= np.array(['MPG', 'Cylinders', 'Displacement', 'Horsepower', 'Weight', 'Acceleration', 'Model Year', 'Origin', 'Car_name']))
+        ejercicio43=Ejercicio43(df)
+
+        print("4.3.1")
+        df5000=ejercicio43.filtro_peso_minimo(5000)
+        print(df5000)
+
+        print("4.3.2")
+        df76=ejercicio43.filtro_antiguedad(76)
+        df76.reset_index(drop=True, inplace=True)
+        print(df76)
+
+        print("4.3.3")
+        df70=ejercicio43.filtro_antiguedad(70)
+        df79=ejercicio43.filtro_antiguedad(79)
+        media70=df70["MPG"].mean()
+        media79=df79["MPG"].mean()
+        diferencia_consumo=abs(media70-media79)
+        print(diferencia_consumo)
+
+        print("4.3.4")
+        dfNulos=ejercicio43.localizar_defectos()
+        print(dfNulos)
+
+        print("4.3.5")
+
+
+        print("4.3.6")
+
+
+        print("4.3.7")
+        dfMin=ejercicio43.filtro_minimos(6,4000,10)
+        print(dfMin)
