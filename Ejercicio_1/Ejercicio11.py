@@ -1,21 +1,3 @@
-'''
-lista=[1, "abc", 3.4, -5, 6]
-lista2=[]
-for i in range(len(lista)-1,0,-2):
-    lista2.append(lista[i-1])
-
-lista[0] =lista[-1]
-lista[-1]=lista[0]
-lista.pop()
-nuevaLista= []
-for i in lista:
-    nuevaLista.append(i)
-    nuevaLista.append(i)
-
-#print(nuevaLista)
-'''
-
-
 class Ejercicio11:
     def __init__(self,lista):
         self.lista=lista
