@@ -5,6 +5,8 @@ df = pd.read_csv('auto-mpg.csv', sep='\s+', names= np.array(['MPG', 'Cylinders',
 print(df)
 #print(t.head())
 #print(df.head())
+
+#4.3.1
 def filtro_peso_minimo(dtf,peso):
     for c in range(len(dtf['Weight'])):
         if dtf['Weight'][c]<=peso:
@@ -12,6 +14,7 @@ def filtro_peso_minimo(dtf,peso):
     return dtf
 print(filtro_peso_minimo(df,5000))
 
+#4.3.2
 def filtro_antiguedad(dtf,año):
     for c in range(len(dtf['Model Year'])):
         if dtf['Model Year'][c]!=año:
@@ -20,7 +23,7 @@ def filtro_antiguedad(dtf,año):
 
 new_df=filtro_antiguedad(df,76)
 new_df.reset_index(drop=True, inplace=True)
-print(new_df['Cylinders'][0])
+print(new_df)
 
 def frecuencia_valor(serie,valor):
     contador=0
@@ -47,9 +50,31 @@ frecuencia_cilindros=frecuencia_serie(new_df['Cylinders'])
 print(frecuencia_cilindros)
 #como podemos observar, el numero de cilindros mas frecuente es 4
 
+#4.3.3
 año_70=filtro_antiguedad(df,70)
 año_79=filtro_antiguedad(df,79)
 consumo_medio_año_70=año_70['MPG'].mean()
 consumo_medio_año_79=año_79['MPG'].mean()
 diferencia_consumo=abs(consumo_medio_año_70-consumo_medio_año_79)
-print (diferencia_consumo)
+print(diferencia_consumo)
+
+#4.3.7
+def filtro_cilindros_minimos(dtf,num):
+    for c in range(len(dtf['Cylinders'])):
+        if dtf['Cylinders'][c]<num:
+            dtf=dtf.drop(c)
+    return dtf
+
+def filtro_mpg_maximo(dtf,mpg):
+    for c in range(len(dtf['MPG'])):
+        if dtf['MPG'][c]>mpg:
+            dtf=dtf.drop(c)
+    return dtf
+
+df1=filtro_cilindros_minimos(df,6)
+df1.reset_index(drop=True, inplace=True)
+df1=filtro_peso_minimo(df1,4000)
+df1.reset_index(drop=True, inplace=True)
+df1=filtro_mpg_maximo(df1,10)
+df1.reset_index(drop=True, inplace=True)
+print(df1)
