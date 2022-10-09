@@ -58,12 +58,14 @@ consumo_medio_año_79=año_79['MPG'].mean()
 diferencia_consumo=abs(consumo_medio_año_70-consumo_medio_año_79)
 print(diferencia_consumo)
 
+#4.3.4 y #4.3.5
 def localizar(dtf):
     lst=dtf.columns
     dtf1=pd.DataFrame()
     for i in lst:
         for j in range(len(dtf[i])):
             if dtf[i][j]=='?':
+                print(f'({i},{j})')
                 dtf1[j]=dtf.iloc[j]
     return dtf1.T
 
