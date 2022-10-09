@@ -59,7 +59,7 @@ diferencia_consumo=abs(consumo_medio_año_70-consumo_medio_año_79)
 print(diferencia_consumo)
 
 #4.3.4, 4.3.5, 4.3.6
-def localizar(dtf):
+def localizar_defectos(dtf):
     lst=dtf.columns
     dtf1=pd.DataFrame()
     for i in lst:
@@ -69,10 +69,10 @@ def localizar(dtf):
                 dtf1[j]=dtf.iloc[j]
     return dtf1.T
 
-df_defectuosos=localizar(df)
-print(df_defectuosos)
-df_defectuosos.reset_index(drop=True, inplace=True)
-frecuencia_cilindros_defect=frecuencia_serie(df_defectuosos['Cylinders'])
+df_defectos=localizar_defectos(df)
+print(df_defectos)
+df_defectos.reset_index(drop=True, inplace=True)
+frecuencia_cilindros_defect=frecuencia_serie(df_defectos['Cylinders'])
 print(frecuencia_cilindros_defect)
 
 
