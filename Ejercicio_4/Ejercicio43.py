@@ -58,7 +58,7 @@ consumo_medio_año_79=año_79['MPG'].mean()
 diferencia_consumo=abs(consumo_medio_año_70-consumo_medio_año_79)
 print(diferencia_consumo)
 
-#4.3.4 y #4.3.5
+#4.3.4, 4.3.5, 4.3.6
 def localizar(dtf):
     lst=dtf.columns
     dtf1=pd.DataFrame()
@@ -69,7 +69,12 @@ def localizar(dtf):
                 dtf1[j]=dtf.iloc[j]
     return dtf1.T
 
-print(localizar(df))
+df_defectuosos=localizar(df)
+print(df_defectuosos)
+df_defectuosos.reset_index(drop=True, inplace=True)
+frecuencia_cilindros_defect=frecuencia_serie(df_defectuosos['Cylinders'])
+print(frecuencia_cilindros_defect)
+
 
 #4.3.7
 def filtro_cilindros_minimos(dtf,num):
