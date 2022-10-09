@@ -60,12 +60,14 @@ print(diferencia_consumo)
 
 def localizar(dtf):
     lst=dtf.columns
+    dtf1=pd.DataFrame()
     for i in lst:
         for j in range(len(dtf[i])):
             if dtf[i][j]=='?':
-                print(f'({i},{j})')
-                print(dtf[i][j])
-localizar(df)
+                dtf1[j]=dtf.iloc[j]
+    return dtf1.T
+
+print(localizar(df))
 
 #4.3.7
 def filtro_cilindros_minimos(dtf,num):
