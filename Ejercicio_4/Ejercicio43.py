@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 
-
 df = pd.read_csv('auto-mpg.csv', sep='\s+', names= np.array(['MPG', 'Cylinders', 'Displacement', 'Horsepower', 'Weight', 'Acceleration', 'Model Year', 'Origin', 'Car_name']))
 print(df)
 #print(t.head())
@@ -20,5 +19,30 @@ def filtro_antiguedad(dtf,año):
     return dtf
 
 new_df=filtro_antiguedad(df,76)
-print(new_df)
+new_df.reset_index(drop=True, inplace=True)
+print(new_df['Cylinders'][0])
 
+def frecuencia_valor(serie,valor):
+    contador=0
+    valores=[]
+    for i in range(len(serie)):
+        if serie[i] not in valores:
+            valores.append(serie[i])
+    if valor in valores:
+        for i in range(len(serie)):
+            if valor==serie[i]:
+                contador+=1
+            else:pass
+        return contador
+    else:
+        return f'{valor} no es un valor de la serie'
+
+def frecuencia_serie(serie):
+    dict={}
+    for i in range(len(serie)):
+        dict[serie[i]]=frecuencia_valor(serie,serie[i])
+    return dict
+
+frecuencia_cilindros=frecuencia_serie(new_df['Cylinders'])
+print(frecuencia_cilindros)
+#como podemos observar, el numero de cilindros mas frecuente es 4
