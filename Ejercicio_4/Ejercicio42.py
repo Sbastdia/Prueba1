@@ -130,7 +130,7 @@ class Ejercicio42:
         ejercicio42=Ejercicio42(data_array)#4.2.1
         serie=ejercicio42.funcion()
         print(serie)
-        
+
         print("Apartado 4.2.2")
         data_array2=np.array([10, True, 8.00, False, 8, 10])#4.2.2
         ejercicio42_2=Ejercicio42(data_array2)
