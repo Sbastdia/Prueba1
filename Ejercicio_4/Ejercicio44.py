@@ -44,40 +44,14 @@ print(len(result2.index))
 
 #4.4.6
 data=pd.read_csv('auto-mpg.csv',sep='\s+',names= np.array(['MPG', 'Cylinders', 'Displacement', 'Horsepower', 'Weight', 'Acceleration', 'Model Year', 'Origin', 'Car_name']))
-print(data['Model Year'])
-
-def eliminar_defectos(dtf):
-    lst=dtf.columns
-    for i in lst:
-        for j in range(len(dtf[i])):
-            if dtf[i][j]=='?':
-                dtf[i][:]
-    return dtf
-
-def filtro_antiguedad(dtf,año):
-    for c in range(len(dtf['Model Year'])):
-        if dtf['Model Year'][c]!=año:
-            dtf=dtf.drop(c)
-    return dtf
-
-def dividir(dtf,lst=[]):
-    dtf1=pd.DataFrame()
-    for i in dtf['Model Year']:
-        if i not in lst:
-            lst.append(i)
-    for i in range(len(lst)):
-        print(filtro_antiguedad(dtf,lst[i]))
-        for j in range(len(dtf.columns)):
-            dtf1[f'{i}']=filtro_antiguedad(dtf,lst[i])[dtf.columns[j]].mean()
-    print(dtf1)
-
-dividir(data)
 
 
-class Ejercicio44:
+
+
+"""class Ejercicio44:
     def __init__(self,data1,data2):
         self.df1=data1
         self.df2=data2
     def juntar(self):
-        self.dataframe=pd.concat(self.df1,self.df2)
-    
+        self.dataframe=pd.concat(self.df1,self.df2)"""
+
