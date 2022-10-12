@@ -72,3 +72,12 @@ def dividir(dtf,lst=[]):
     print(dtf1)
 
 dividir(data)
+
+
+class Ejercicio44:
+    def __init__(self,data1,data2):
+        self.df1=data1
+        self.df2=data2
+    def juntar(self):
+        self.dataframe=pd.concat(self.df1,self.df2)
+    
